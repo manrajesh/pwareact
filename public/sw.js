@@ -30,13 +30,15 @@ this.addEventListener("fetch", (event) => {
             )
         }
         event.respondWith(
-            caches.match(event.request).then((resp) => {
+            caches.open(cacheData).then((cache) => {
+               return cache.match(event.request).then((resp) => {
                 if (resp) {
                     return resp
                 }
                 let requestUrl = event.request.clone();
                 fetch(requestUrl)
             })
+        })
         )
     }
 }) 

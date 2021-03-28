@@ -25,15 +25,15 @@ export default function swDev()
     navigator.serviceWorker.register(swUrl).then((response)=>{
         console.warn("response",response)
 
-        return response.pushManager.getSubscription()
-        .then(function (subscription) {
-           response.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: determineAppServerKey()
-          })
+        // return response.pushManager.getSubscription()
+        // .then(function (subscription) {
+        //    response.pushManager.subscribe({
+        //     userVisibleOnly: true,
+        //     applicationServerKey: determineAppServerKey()
+        //   })
           
 
-        })
+        // })
 
     }) 
 }
